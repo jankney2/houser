@@ -52,11 +52,11 @@ table {
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
 
 .navBar {
- background:#519872;
+ background:#3b5249;
  height: 10vh;
 color: white;
 margin: 0px;
-padding-left:25%;
+padding-left:17%;
 padding-top: 2vh;
 font-size: 36px;
 }
@@ -67,12 +67,14 @@ body {
 }
 
 
+
+
 .content {
- width: 50%;
+ width: 66%;
  margin: auto; 
  background-color: #e5f4ec;
  margin-top: 0px;
- height: 100vh;
+ height: 100%;
  font-size: 50px;
  
 }
@@ -96,21 +98,70 @@ body {
 }
 
 .house button {
-	background-color: #fff;
+	background-color: #dedede;
 }
 
 .subContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	font-size: 22px;
+	font-weight: 200;
+	padding: 3%;
+	background-color: #dedede;
+	margin: 40px 25px;
+}
+
+.subContainer * {
+	padding:3%;
+}
+
+.subContainer img {
+	max-width: 25%;
+}
+
+
+.buttonHolder {
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 20px;
+}
+
+.buttonHolder button {
+	background-color: #519872;
+	
+}
+
+.topHolder {
+	display:flex;
+	justify-content: space-around;
+
+
+}
+
+.topHolder button {
+	background-color: #fec2c2;
 }
 
 
 
+.inputHolder input {
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	padding: 15px;
+}
 
-
-
-
+.soloInput {
+	width: 50%;
+	/* margin-left: auto;
+	margin-right: auto; */
+	margin-top: 20px;
+	padding: 15px;
+	
+}
 
 
 

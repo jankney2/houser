@@ -9,14 +9,14 @@ export default class House extends Component{
     return(
       <div className="house">
         {/* on click of the button triggers delete */}
+
+<div className="subContainer">        
         <button onClick={()=>{
           axios.delete(`http://localhost:8877/api/houses/${this.props.deleteId}`).then(()=>{
             window.location.reload()
           })
 
         }}>X</button>
-
-<div className="subContainer">        
         <img src={this.props.img} alt=""/>
         
         <div>
