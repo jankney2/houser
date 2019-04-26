@@ -80,11 +80,8 @@ changeHandler = (e) => {
       <button onClick={()=>{
         let reduxState=store.getState()
 
-        axios.post('http://localhost:8877/api/houses', reduxState).then(()=>{
-          this.setState({
-            rentInput:0, 
-            mortgageInput:0
-          })
+        axios.post('http://localhost:8877/api/houses', reduxState).then((res)=>{
+          console.log(res)
         })
 
 

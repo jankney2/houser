@@ -42,10 +42,10 @@ export default class Wizard extends Component {
   //}
 
 
-
-
+  
+  
   render() {
-
+    
     var changeHandler = function (e) {
       let { name } = e.target
       this.setState({
@@ -53,7 +53,7 @@ export default class Wizard extends Component {
       })
     }.bind(this)
 
-
+    
 
     return (
       <div className="content">
