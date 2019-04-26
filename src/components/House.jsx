@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 
 
@@ -8,7 +9,12 @@ export default class House extends Component{
     return(
       <div>
         {/* on click of the button triggers delete */}
-        <button>X</button>
+        <button onClick={()=>{
+          axios.delete(`http://localhost:8877/api/houses/${this.props.deleteId}`).then(()=>{
+            window.location.reload()
+          })
+
+        }}>X</button>
         <img src={this.props.img} alt=""/>
         <h1>Property Name: {this.props.propName}</h1>
         <h1>Property Address: {this.props.address}</h1>

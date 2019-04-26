@@ -1,31 +1,109 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import store, { PROP_NAME_CHANGE, ADDRESS_CHANGE, CITY_CHANGE, STATE_CHANGE, ZIP_CHANGE } from '../store'
+
+
+export default class Wizard extends Component {
+
+  constructor() {
+    super()
+    let reduxState = store.getState()
+
+    this.state = {
+      name: reduxState.name,
+      address: reduxState.address,
+      city: reduxState.city,
+      state: reduxState.state,
+      zip: reduxState.zip,
+      nameInput: '',
+      addressInput: '',
+      cityInput: '',
+      stateInput: '',
+      zipInput: ''
+    }
+  }
+
+
+  componentDidMount() {
+    store.subscribe(() => {
+      const reduxState = store.getState()
+      this.setState(reduxState)
+    })
+
+  }
+
+  changeHandler = (e) => {
+
+    let {name}= e.target
+    console.log(name)
+    this.setState({
+[name]: e.target.value
+    })
 
 
 
-export default class Wizard extends Component{
-  render(){
-    return(
+
+
+  }
+  render() {
+    return (
       <div className="content">
-     
-     <div>
-       <h1>Add New Listing</h1>
-       
-       <Link to='/'>
-       <button>Cancel</button>
-       </Link>
-     </div>
 
-      <input name='propertyName' placeholder="property name"/>
-      <input name='address' placeholder="Address"/>
-      <input name='city' placeholder="city"/>
-      <input name='state' placeholder="state"/>
-      <input name='zip' placeholder="zip"/>
-     
-    
-     
+        <div>
+          <h1>Add New Listing</h1>
 
-      <button>Next Step</button>
+          <Link to='/'>
+            <button>Cancel</button>
+          </Link>
+        </div>
+
+        <input name='nameInput' placeholder="property name" type="text" onChange={(e)=>{
+          this.changeHandler(e)
+          store.dispatch({
+            type:PROP_NAME_CHANGE, 
+            payload: this.state.nameInput
+          })
+        }}/>
+
+        <input type='text' name='addressInput' placeholder="Address" onChange={(e)=>{
+          this.changeHandler(e)
+          store.dispatch({
+            type:ADDRESS_CHANGE, 
+            payload: this.state.addressInput
+          })
+        }} />
+        
+        <input type='text' name='cityInput' placeholder="city" onChange={(e)=>{
+          this.changeHandler(e)
+          store.dispatch({
+            type:CITY_CHANGE, 
+            payload: this.state.cityInput
+          })
+        }}
+        
+        />
+        
+        <input type='text' name='stateInput' placeholder="state" onChange={(e)=>{
+          this.changeHandler(e)
+          store.dispatch({
+            type:STATE_CHANGE, 
+            payload: this.state.stateInput
+          })
+        }}/>
+        
+        <input type='text' name='zipInput' placeholder="zip" onChange={(e)=>{
+          this.changeHandler(e)
+          store.dispatch({
+            type:ZIP_CHANGE, 
+            payload: this.state.zipInput
+          })
+        }}/>
+
+
+
+        <Link to='/wizard2'>
+          <button>Next Step</button>
+        </Link>
       </div>
     )
   }
