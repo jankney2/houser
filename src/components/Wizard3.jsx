@@ -1,14 +1,12 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import store, {RENT_CHANGE, MORTGAGE_CHANGE} from '../store'
+import store, {RENT_CHANGE, MORTGAGE_CHANGE, RESET} from '../store'
 
 
 export default class Wizard3 extends Component{
   
-  // postReq: (obj) => {
-  //   axios.post()
-  // }
+
 constructor() {
   super()
   let reduxState= store.getState()
@@ -44,7 +42,11 @@ changeHandler = (e) => {
      <div>
        <h1>Add New Listing</h1>
        
-       <Link to='/'>
+       <Link to='/' onClick={()=>{
+            store.dispatch({
+              type: RESET
+            })
+          }}>
        <button>Cancel</button>
        </Link>
      </div>
@@ -73,6 +75,8 @@ changeHandler = (e) => {
     
      
 {/* does post request on click */}
+      
+      <Link to='/'>
       <button onClick={()=>{
         let reduxState=store.getState()
 
@@ -85,7 +89,9 @@ changeHandler = (e) => {
 
 
 
-      }}>Next Step</button>
+      }}>Create Listing</button>
+      </Link>
+      
       </div>
     )
   }

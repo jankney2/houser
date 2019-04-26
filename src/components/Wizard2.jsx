@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import store, { IMG_CHANGE } from '../store'
+import store, { IMG_CHANGE, RESET } from '../store'
 
 
 export default class Wizard2 extends Component{
@@ -29,7 +29,11 @@ export default class Wizard2 extends Component{
      <div>
        <h1>Add New Listing</h1>
        
-       <Link to='/'>
+       <Link to='/' onClick={()=>{
+            store.dispatch({
+              type: RESET
+            })
+          }}>
        <button>Cancel</button>
        </Link>
      </div>

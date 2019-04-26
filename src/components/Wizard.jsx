@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import store, { PROP_NAME_CHANGE, ADDRESS_CHANGE, CITY_CHANGE, STATE_CHANGE, ZIP_CHANGE } from '../store'
+import store, { PROP_NAME_CHANGE, ADDRESS_CHANGE, CITY_CHANGE, STATE_CHANGE, ZIP_CHANGE, RESET } from '../store'
 
 
 export default class Wizard extends Component {
@@ -32,33 +32,46 @@ export default class Wizard extends Component {
 
   }
 
-  changeHandler = (e) => {
+//   changeHandler = (e) => {
 
+//     let {name}= e.target
+//     console.log(name)
+//     this.setState({
+// [name]: e.target.value
+//     })
+//}
+
+
+
+
+render() {
+  
+ var changeHandler =function (e) {
     let {name}= e.target
-    console.log(name)
     this.setState({
-[name]: e.target.value
+      [name]: e.target.value
     })
-
-
-
-
-
-  }
-  render() {
+  }.bind(this)
+  
+  
+  
     return (
       <div className="content">
 
         <div>
           <h1>Add New Listing</h1>
 
-          <Link to='/'>
+          <Link to='/' onClick={()=>{
+            store.dispatch({
+              type: RESET
+            })
+          }}>
             <button>Cancel</button>
           </Link>
         </div>
 
         <input name='nameInput' placeholder="property name" type="text" onChange={(e)=>{
-          this.changeHandler(e)
+          changeHandler(e)
           store.dispatch({
             type:PROP_NAME_CHANGE, 
             payload: this.state.nameInput
@@ -66,7 +79,7 @@ export default class Wizard extends Component {
         }}/>
 
         <input type='text' name='addressInput' placeholder="Address" onChange={(e)=>{
-          this.changeHandler(e)
+          changeHandler(e)
           store.dispatch({
             type:ADDRESS_CHANGE, 
             payload: this.state.addressInput
@@ -74,7 +87,7 @@ export default class Wizard extends Component {
         }} />
         
         <input type='text' name='cityInput' placeholder="city" onChange={(e)=>{
-          this.changeHandler(e)
+          changeHandler(e)
           store.dispatch({
             type:CITY_CHANGE, 
             payload: this.state.cityInput
@@ -84,7 +97,7 @@ export default class Wizard extends Component {
         />
         
         <input type='text' name='stateInput' placeholder="state" onChange={(e)=>{
-          this.changeHandler(e)
+          changeHandler(e)
           store.dispatch({
             type:STATE_CHANGE, 
             payload: this.state.stateInput
@@ -92,7 +105,7 @@ export default class Wizard extends Component {
         }}/>
         
         <input type='text' name='zipInput' placeholder="zip" onChange={(e)=>{
-          this.changeHandler(e)
+          changeHandler(e)
           store.dispatch({
             type:ZIP_CHANGE, 
             payload: this.state.zipInput

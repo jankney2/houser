@@ -2,7 +2,7 @@ import {createStore} from 'redux'
 
 let initialState= {
   name:'',
-  address:'did it work', 
+  address:'', 
   city: '', 
   state: '', 
   zip: 0,
@@ -25,7 +25,7 @@ export const ZIP_CHANGE= 'ZIP_CHANGE'
 export const IMG_CHANGE= 'IMG_CHANGE'
 export const MORTGAGE_CHANGE= 'MORTGAGE_CHANGE'
 export const RENT_CHANGE= 'RENT_CHANGE'
-
+export const RESET= 'RESET'
 
 function reducer(state=initialState, action){
   let {type, payload}=action
@@ -56,6 +56,8 @@ return {...state, img:payload}
 case MORTGAGE_CHANGE: 
 return {...state, mortgage:payload}
 
+case RESET: 
+return {}
 
 
 
