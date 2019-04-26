@@ -1,40 +1,9 @@
-.navBar {
- background:#519872;
- height: 10vh;
-color: white;
-margin: 0px;
-}
-
-body {
-  background-color: #afd4c0;
-
-}
-.content {
- width: 50%;
- margin: auto; 
- background-color: #e5f4ec;
- margin-top: 0px;
- height: 100vh;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
+/* big */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -78,3 +47,73 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+
+.navBar {
+ background:#519872;
+ height: 10vh;
+color: white;
+margin: 0px;
+padding-left:25%;
+padding-top: 2vh;
+font-size: 36px;
+}
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+  background-color: #afd4c0;
+}
+
+
+.content {
+ width: 50%;
+ margin: auto; 
+ background-color: #e5f4ec;
+ margin-top: 0px;
+ height: 100vh;
+ font-size: 50px;
+ 
+}
+
+.dash {
+	padding: 10px 15px;
+	display:flex;
+	font-weight: 600;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid black;
+
+} 
+
+.content button {
+	background-color: #8aea92;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	font-size: 16px;
+}
+
+.house button {
+	background-color: #fff;
+}
+
+.subContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

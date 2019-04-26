@@ -4,56 +4,56 @@ import axios from 'axios'
 import House from './House'
 
 export default class Dashboard extends Component {
-  
-  constructor(){
+
+  constructor() {
     super()
-    this.state={
-      houseList:[]
+    this.state = {
+      houseList: []
     }
   }
-  
 
-  
+
+
   componentDidMount() {
-    axios.get('http://localhost:8877/api/houses').then(res=>{
+    axios.get('http://localhost:8877/api/houses').then(res => {
       // console.log('get fired')
-      
+
       this.setState({
-        houseList:res.data
+        houseList: res.data
       })
     })
   }
-  
+
   render() {
 
-let HouseMap= this.state.houseList.map(el=> {
-  return <House key={el.id} img={el.img} propName={el.name} address={el.address} city={el.city} state={el.state} zip={el.zip} deleteId={el.id} />
-})
+    let HouseMap = this.state.houseList.map(el => {
+      return <House key={el.id} img={el.img} propName={el.name} address={el.address} city={el.city} state={el.state} zip={el.zip} deleteId={el.id} mortgage={el.mortgage} rent= {el.rent} />
+    })
 
     return (
       <div className="content">
-        <div>
+        <div className="dash">
           <h1>Dashboard</h1>
           <Link to="/wizard">
 
             <button>Add New Property</button>
           </Link>
-
-        <section>
-
-          {HouseMap}
-        </section>
-
         </div>
+
+          <section>
+
+            {HouseMap}
+          </section>
+
         <br />
 
 
-      <section>
+        <section>
 
 
 
 
-      </section>
+        </section>
 
       </div>
     )
